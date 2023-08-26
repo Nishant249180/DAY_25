@@ -1,0 +1,37 @@
+1. Implemented SQL scripting without STRSQL and using RUNSQLSTM
+
+ Columns . . . :    1  71            Edit                       NISHANT451/RISSRC
+ SEU==>                                                               EMPSCRIPT 
+ FMT **  ...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7  
+        *************** Beginning of data ************************************* 
+0001.00 INSERT INTO KARTIKA241.USTEMP VALUES(1, 'ASWIN', 10, 'M', 65000);       
+0002.00 INSERT INTO KARTIKA241.USTEMP VALUES(2, 'ASWATHY', 20, 'F', 80000);     
+0003.00 INSERT INTO KARTIKA241.USTEMP VALUES(3, 'BESSY', 10, 'F', 90000);       
+0004.00 INSERT INTO KARTIKA241.USTEMP VALUES(4, 'VISHNU', 10, 'M', 88000);      
+0005.00 INSERT INTO KARTIKA241.USTEMP VALUES(5, 'MANI', 20, 'M', 35000);        
+0006.00 INSERT INTO KARTIKA241.USTEMP VALUES(6, 'SNEHA', 10, 'F', 85000);       
+0007.00 INSERT INTO KARTIKA241.USTEMP VALUES(7, 'MANEESHA', 10, 'F', 75000);    
+0008.00 INSERT INTO KARTIKA241.USTEMP VALUES(8, 'ASWINI', 10, 'F', 65000);      
+0009.00 INSERT INTO KARTIKA241.USTEMP VALUES(9, 'KARTHIKA', 10, 'F', 65000);    
+0010.00 INSERT INTO KARTIKA241.USTEMP VALUES(10, 'RUSHIN', 10, 'F', 65000);     
+0011.00 INSERT INTO KARTIKA241.USTEMP VALUES(11, 'SAJANA', 20, 'F', 65000);     
+        ****************** End of data **************************************** 
+
+
+2.Create a stream file using SQLRPGLE
+
+
+ Columns . . . :    6  76            Edit                     NISHANT451/RISSRC 
+ SEU==>                                                                IFSWRITE 
+ FMT D  DName+++++++++++ETDsFrom+++To/L+++IDc.Keywords+++++++++++++++++++++++++ 
+        *************** Beginning of data ************************************* 
+0001.00 DPATH             S             27A   INZ('/HOME/ONAMK/TEST.TXT')       
+0002.00 DTXT              S             40A   INZ('HI DEAR MANIRATNAM...')      
+0003.00 C/EXEC SQL                                                              
+0004.00 C+ CALL QSYS2/IFS_WRITE_UTF8 (:PATH,                                    
+0005.00 C+ :TXT,END_OF_LINE => 'CRLF')                                          
+0006.00 C/END-EXEC                                                              
+0007.00 C     SQLCODE       DSPLY                                               
+0008.00 C                   EVAL      *INLR=*ON                                 
+        ****************** End of data **************************************** 
+                                                                                
